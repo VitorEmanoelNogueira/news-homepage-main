@@ -1,0 +1,5 @@
+@media (prefers-reduced-motion: reduce){
+    .c-skip-link{
+        transition: none;
+    }
+}
