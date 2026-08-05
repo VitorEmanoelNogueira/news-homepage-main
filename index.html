@@ -13,11 +13,12 @@
   <link rel="stylesheet" href="./css/media-queries.css">
 </head>
 <body>
-  <header class="c-header">
+  
+  <header class="c-header l-container">
     <a class="c-skip-link" href="#main-content">Skip to main content</a>
 
-    <a href="#" aria-label="News homepage">
-      <img class="c-header__brand" src="./assets/images/logo.svg" alt="">
+    <a class="c-header__brand" href="#" aria-label="News homepage">
+      <img src="./assets/images/logo.svg" alt="">
     </a>
 
     <button type="button"
@@ -29,7 +30,7 @@
       <img src="./assets/images/icon-menu.svg" alt="">
     </button>
 
-    <nav id="nav-menu" class="c-header__nav">
+    <nav class="c-header__nav" id="nav-menu">
       <ul class="c-header__nav-list">
         <li class="c-header__nav-item"><a href="#" aria-current="page">Home</a></li>
         <li class="c-header__nav-item"><a href="#">New</a></li>
@@ -40,15 +41,17 @@
     </nav>
   </header>
 
-<main class="l-main" id="main-content">
+<main class="l-main l-container" id="main-content">
     <section class="c-hero">
-      <picture>
+      <picture class="c-hero__image-wrapper">
         <source media="(min-width: 62rem)" srcset="./assets/images/image-web-3-desktop.jpg">
         <img class="c-hero__image" src="./assets/images/image-web-3-mobile.jpg" alt="">
       </picture>
       <h1 class="c-hero__title">The Bright Future of Web 3.0?</h1>
-      <p class="c-hero__description">We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise?</p>
-      <a href="#" class="c-hero__button">Read more</a>
+      <div class="c-hero__body">
+        <p class="c-hero__description">We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. But is it really fulfilling its promise?</p>
+        <a href="#" class="c-hero__button">Read more</a>
+      </div>
     </section>
   
     <aside class="c-news-sidebar">
@@ -78,30 +81,40 @@
       <h2 class="u-sr-only">Top articles</h2>
       <article class="c-article-card">
         <img class="c-article-card__image" src="./assets/images/image-retro-pcs.jpg" alt="">
-        <span class="c-article-card__number">01</span>
-        <h3 class="c-article-card__title"><a href="#">Reviving Retro PCs</a></h3>
-        <p class="c-article-card__description">What happens when old PCs are given modern upgrades?</p>
+
+        <div class="c-article-card__content">
+          <span class="c-article-card__number">01</span>
+          <h3 class="c-article-card__title"><a href="#">Reviving Retro PCs</a></h3>
+          <p class="c-article-card__description">What happens when old PCs are given modern upgrades?</p>
+        </div>
       </article>
   
       <article class="c-article-card">
         <img class="c-article-card__image" src="./assets/images/image-top-laptops.jpg" alt="">
-        <span class="c-article-card__number">02</span>
-        <h3 class="c-article-card__title"><a href="#">Top 10 Laptops of 2022</a></h3>
-        <p class="c-article-card__description">Our best picks for various needs and budgets.</p>
+
+        <div class="c-article-card__content">
+          <span class="c-article-card__number">02</span>
+          <h3 class="c-article-card__title"><a href="#">Top 10 Laptops of 2022</a></h3>
+          <p class="c-article-card__description">Our best picks for various needs and budgets.</p>
+        </div>
       </article>
   
       <article class="c-article-card">
         <img class="c-article-card__image" src="./assets/images/image-gaming-growth.jpg" alt="">
-        <span class="c-article-card__number">03</span>
-        <h3 class="c-article-card__title"><a href="#">The Growth of Gaming</a></h3>
-        <p class="c-article-card__description">How the pandemic has sparked fresh opportunities.</p>
+        
+        <div class="c-article-card__content">
+          <span class="c-article-card__number">03</span>
+          <h3 class="c-article-card__title"><a href="#">The Growth of Gaming</a></h3>
+          <p class="c-article-card__description">How the pandemic has sparked fresh opportunities.</p>
+        </div>
       </article>
   </section>
 </main>
 
   <footer class="attribution">
-    <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.</p>
-    <p>Coded by <a href="https://www.frontendmentor.io/profile/VitorEmanoelNogueira">Vitor Nogueira</a>.</p>
+    <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/VitorEmanoelNogueira">Vitor Nogueira</a>.</p>
   </footer>
+
 </body>
 </html>
