@@ -26,11 +26,20 @@
     aria-label="Open Navigation Menu" 
     aria-expanded="false"
     aria-controls="nav-menu"
+    data-nav-open
     >
       <img src="./assets/images/icon-menu.svg" alt="">
     </button>
 
     <nav class="c-header__nav" id="nav-menu">
+      <button type="button"
+      class = "c-header__nav-toggle c-header__nav-toggle--close"
+      aria-label="Close Navigation Menu"
+      aria-controls="nav-menu"
+      data-nav-close
+      >
+        <img src="./assets/images/icon-menu-close.svg" alt="">
+      </button>
       <ul class="c-header__nav-list">
         <li class="c-header__nav-item"><a href="#" aria-current="page">Home</a></li>
         <li class="c-header__nav-item"><a href="#">New</a></li>
@@ -40,6 +49,8 @@
       </ul>
     </nav>
   </header>
+
+  <div class="c-backdrop"></div>
 
 <main class="l-main l-container" id="main-content">
     <section class="c-hero">

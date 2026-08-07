@@ -1,15 +1,32 @@
 @media screen and (min-width: 34.375rem){
+    .c-backdrop{
+        display: none;
+    }
+
     .c-header__nav-toggle{
         display: none;
     }
 
     .c-header__nav{
         display: block;
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        z-index: auto;
+
+        transform: translateX(0);
+        transition: none;
     }
 
     .c-header__nav-list{
-        display: flex;
+        flex-direction: row;
         gap: 2rem;
+    }
+
+    .c-header__nav-item{
+        font-size: inherit;
+
     }
 
     .c-header__nav-item:hover, .c-header__nav-item a:focus-visible{
@@ -43,17 +60,8 @@
         width: 4rem;
     }
 
-    .c-header__nav-toggle{
-        display: none;
-    }
-
-    .c-header__nav{
-        display: block;
-    }
-
     .c-header__nav-list{
-        display: flex;
-        gap: 2.5rem;
+        gap: 2.625rem;
     }
 
     .c-hero{
