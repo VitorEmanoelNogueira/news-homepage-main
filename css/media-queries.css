@@ -26,11 +26,6 @@
 
     .c-header__nav-item{
         font-size: inherit;
-
-    }
-
-    .c-header__nav-item:hover, .c-header__nav-item a:focus-visible{
-        color: var(--soft-red)
     }
 }
 

@@ -159,6 +159,10 @@ img{
     font-size: 1.125rem;
 }
 
+.c-header__nav-item a:hover, .c-header__nav-item a:focus-visible{
+    color: var(--soft-red)
+}
+
 .c-backdrop {
     position: fixed;
     inset: 0;
@@ -319,6 +323,10 @@ img{
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
+}
+
+.u-color-transition{
+    transition: color 0.15s ease;
 }
 
 /* Frontendmentor attribution */
