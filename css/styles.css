@@ -121,6 +121,7 @@ img{
     border: none;
     background-color: inherit;
     outline-offset: 0.2rem;
+    cursor: pointer;
 }
 
 .c-header__nav-toggle--close{
@@ -139,13 +140,9 @@ img{
     inset: 0 0 0 auto;
     transform: translateX(100%);
 
-    padding: 1rem;
+    padding: 1.75rem 1rem;
     background-color: var(--off-white);
     z-index: 100;
-
-    transition: 
-    display 0.25s allow-discrete,
-    transform 0.25s ease-out;
 }
 
 .c-header__nav-list{
@@ -284,13 +281,24 @@ img{
 }
 
 /* State */
-.c-header__nav.is-active{
+.c-header__nav.is-open, .c-header__nav.is-closing{
+    transition: 
+    display 0.25s allow-discrete,
+    transform 0.25s ease-out;
+}
+
+.c-header__nav.is-open{
     display: flex;
     transform: translateX(0);
 }
 
+.c-header__nav.is-closing {
+  display: flex;
+  transform: translateX(100%);
+}
+
 @starting-style {
-  .c-header__nav.is-active {
+  .c-header__nav.is-open {
     transform: translateX(100%);
   }
 }
