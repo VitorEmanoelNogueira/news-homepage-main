@@ -159,8 +159,8 @@ img{
     font-size: 1.125rem;
 }
 
-.c-header__nav-item a:hover, .c-header__nav-item a:focus-visible{
-    color: var(--soft-red)
+.c-header__nav-item a:focus-visible, .c-article-card__title a:focus-visible{
+    color: var(--soft-red);
 }
 
 .c-backdrop {
@@ -205,12 +205,9 @@ img{
 }
 
 
-.c-hero__button:hover, .c-hero__button:focus-visible{
+.c-hero__button:focus-visible{
     background-color: var(--very-dark-blue);
     color: var(--off-white);
-}
-
-.c-hero__button:focus-visible{
     outline: 0.2rem solid var(--very-dark-blue);
     outline-offset: 0.2rem;
 }
@@ -233,7 +230,7 @@ img{
     color: var(--off-white);
 }
 
-.c-news-sidebar__article-title a:hover, .c-news-sidebar__article-title a:focus-visible{
+.c-news-sidebar__article-title a:focus-visible{
     color: var(--soft-orange);
 }
 
@@ -278,10 +275,6 @@ img{
 .c-article-card__title{
     color: var(--very-dark-blue);
     font-weight: 800;
-}
-
-.c-article-card__title a:hover, .c-article-card__title a:focus-visible{
-    color: var(--soft-red);
 }
 
 /* State */

@@ -1,3 +1,4 @@
+/* Viewport / layout */
 @media screen and (min-width: 34.375rem){
     .c-backdrop{
         display: none;
@@ -85,8 +86,25 @@
     }
 }
 
+/* User preferences / accessibility */
 @media (prefers-reduced-motion: reduce){
     .c-skip-link{
         transition: none;
+    }
+}
+
+/* Input capabilities */
+@media (hover: hover) and (pointer: fine) {
+    .c-hero__button:hover{
+        background-color: var(--very-dark-blue);
+        color: var(--off-white);
+    }
+
+    .c-news-sidebar__article-title a:hover{
+        color: var(--soft-orange);
+    }
+
+    .c-header__nav-item a:hover, .c-article-card__title a:hover{
+        color: var(--soft-red);
     }
 }
