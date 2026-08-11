@@ -93,6 +93,17 @@
     }
 }
 
+@media (forced-colors: active){
+    .c-header__brand, .c-header__nav-toggle{
+        forced-color-adjust: none;
+        filter: invert(1);
+    }
+
+    .c-hero__button, .c-news-sidebar, .c-header__nav.is-open{
+        border: 0.1rem solid currentColor;
+    }
+}
+
 /* Input capabilities */
 @media (hover: hover) and (pointer: fine) {
     .c-hero__button:hover{
