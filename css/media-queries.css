@@ -88,7 +88,7 @@
 
 /* User preferences / accessibility */
 @media (prefers-reduced-motion: reduce){
-    .c-skip-link{
+    .c-skip-link, .c-backdrop, .c-header__nav.is-open, .c-header__nav.is-closing, .u-color-transition{
         transition: none;
     }
 }

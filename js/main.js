@@ -40,16 +40,20 @@ function openMenu(){
     closeNavButton.focus();
 }
 
-function closeMenu(){
+function closeMenu() {
     isMenuOpen = false;
 
     navMenu.classList.remove("is-open");
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        navMenu.classList.add("is-closing");
+        navMenu.addEventListener("transitionend", handleTransitionEnd);
+    }
+
     backdrop.classList.remove("is-active");
     openNavButton.setAttribute("aria-expanded", "false");
-    navMenu.classList.add("is-closing");
     togglePageInert();
     openNavButton.focus();
-    navMenu.addEventListener("transitionend", handleTransitionEnd);
 }
 
 function togglePageInert(){
