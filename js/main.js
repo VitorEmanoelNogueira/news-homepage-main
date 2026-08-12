@@ -14,6 +14,12 @@ let isMenuOpen = false;
 // EVENT LISTENERS
 openNavButton.addEventListener("click", () => openMenu());
 closeNavButton.addEventListener("click", () => closeMenu());
+navMenu.addEventListener("keydown", (e) =>{
+    if (!isMenuOpen){
+        return
+    }
+    trapMenuFocus(e);
+})
 navLinks.forEach((link) => {
     link.addEventListener("click", () =>{
         if(isMenuOpen){
@@ -68,5 +74,24 @@ function handleTransitionEnd(e){
     if(e.propertyName === "transform"){
         navMenu.classList.remove("is-closing");
         navMenu.removeEventListener("transitionend", handleTransitionEnd);
+    }
+}
+
+function trapMenuFocus(e){
+    if (e.key !== "Tab"){
+        return
+    }
+
+    const lastNavLink = navLinks[navLinks.length - 1];
+
+    if (closeNavButton === document.activeElement && e.shiftKey){
+        e.preventDefault();
+        lastNavLink.focus();
+        return
+    }
+
+    if (lastNavLink === document.activeElement && !e.shiftKey){
+        e.preventDefault();
+        closeNavButton.focus();
     }
 }
