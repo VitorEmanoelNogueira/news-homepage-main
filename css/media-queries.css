@@ -94,13 +94,23 @@
 }
 
 @media (forced-colors: active){
-    .c-header__brand, .c-header__nav-toggle{
-        forced-color-adjust: none;
-        filter: invert(1);
+    .c-header__brand svg path, .c-header__nav-toggle svg path{
+        fill: canvasText;
     }
 
     .c-hero__button, .c-news-sidebar, .c-header__nav.is-open{
         border: 0.1rem solid currentColor;
+    }
+
+    /* Preserve hover indication when forced colors override hover colors */
+    @media (hover: hover) and (pointer: fine){
+        .c-news-sidebar__article-title a:hover, .c-header__nav-item a:hover, .c-article-card__title a:hover{
+            text-decoration: underline;
+        }
+
+        .c-hero__button:hover{
+            outline: 0.2rem solid currentColor;
+        }
     }
 }
 
