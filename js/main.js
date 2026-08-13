@@ -60,7 +60,6 @@ function openMenu(){
     navMenu.classList.add("is-open");
     navMenu.setAttribute("aria-modal", "true");
     backdrop.classList.add("is-active");
-    openNavButton.setAttribute("aria-expanded", "true");
     togglePageInert();
 
     closeNavButton.focus();
@@ -83,7 +82,6 @@ function closeMenu() {
 
     navMenu.setAttribute("aria-modal", "false");
     backdrop.classList.remove("is-active");
-    openNavButton.setAttribute("aria-expanded", "false");
     togglePageInert();
     openNavButton.focus();
 }
