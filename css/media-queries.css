@@ -28,6 +28,11 @@
     .c-header__nav-item{
         font-size: inherit;
     }
+
+    .c-header__nav.is-closing{
+         /* Keep transitionend while minimizing the animation on desktop. */
+        transition-duration: 1ms;
+    }
 }
 
 @media screen and (min-width: 62rem) {

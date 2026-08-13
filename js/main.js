@@ -9,11 +9,16 @@ const backdrop = document.querySelector(".c-backdrop");
 const main = document.getElementById("main-content");
 const footer = document.querySelector(".attribution");
 
+// State
+const desktopQuery = window.matchMedia("(min-width: 34.375rem)");
 let isMenuOpen = false;
 
-// EVENT LISTENERS
-openNavButton.addEventListener("click", () => openMenu());
-closeNavButton.addEventListener("click", () => closeMenu());
+// Event Listeners / Initialization
+updateNavSemantics();
+desktopQuery.addEventListener("change", updateNavSemantics);
+
+openNavButton.addEventListener("click", openMenu);
+closeNavButton.addEventListener("click", closeMenu);
 navMenu.addEventListener("keydown", (e) =>{
     if (!isMenuOpen){
         return
@@ -35,10 +40,25 @@ document.addEventListener("keydown", (e) =>{
 } );
 
 // DOM HANDLERS
+function updateNavSemantics() {
+    if (desktopQuery.matches) {
+        if (isMenuOpen){
+            closeMenu();
+        }
+
+        navMenu.removeAttribute("role");
+        navMenu.removeAttribute("aria-modal");
+    } else {
+        navMenu.setAttribute("role", "dialog");
+        navMenu.setAttribute("aria-modal", "false");
+    }
+}
+
 function openMenu(){
     isMenuOpen = true;
 
     navMenu.classList.add("is-open");
+    navMenu.setAttribute("aria-modal", "true");
     backdrop.classList.add("is-active");
     openNavButton.setAttribute("aria-expanded", "true");
     togglePageInert();
@@ -50,12 +70,18 @@ function closeMenu() {
     isMenuOpen = false;
 
     navMenu.classList.remove("is-open");
+    navMenu.classList.add("is-closing");
 
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        navMenu.classList.add("is-closing");
-        navMenu.addEventListener("transitionend", handleTransitionEnd);
+        navMenu.addEventListener("transitionend", handleNavClose);
+    } else {
+        // Keep the drawer rendered briefly for screen reader processing.
+        setTimeout(() => {
+            navMenu.classList.remove("is-closing");
+        }, 50)
     }
 
+    navMenu.setAttribute("aria-modal", "false");
     backdrop.classList.remove("is-active");
     openNavButton.setAttribute("aria-expanded", "false");
     togglePageInert();
@@ -70,11 +96,13 @@ function togglePageInert(){
     footer.toggleAttribute("inert");
 }
 
-function handleTransitionEnd(e){
-    if(e.propertyName === "transform"){
-        navMenu.classList.remove("is-closing");
-        navMenu.removeEventListener("transitionend", handleTransitionEnd);
+function handleNavClose(e) {
+    if (e.propertyName !== "transform") {
+        return;
     }
+
+    navMenu.classList.remove("is-closing");
+    navMenu.removeEventListener("transitionend", handleNavClose);
 }
 
 function trapMenuFocus(e){
